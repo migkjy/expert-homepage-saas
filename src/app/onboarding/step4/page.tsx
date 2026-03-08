@@ -25,6 +25,7 @@ export default function OnboardingStep4() {
   const router = useRouter();
   const [data, setData] = useState<OnboardingData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const profession = (sessionStorage.getItem('onboarding_profession') || 'lawyer') as Profession;
@@ -36,6 +37,7 @@ export default function OnboardingStep4() {
   async function handleConfirm() {
     if (!data) return;
     setIsSubmitting(true);
+    setError(null);
 
     try {
       const res = await fetch('/api/tenants', {
@@ -51,8 +53,13 @@ export default function OnboardingStep4() {
         sessionStorage.removeItem('onboarding_info');
         sessionStorage.removeItem('onboarding_branding');
         router.push('/onboarding/complete');
+      } else {
+        const errData = await res.json().catch(() => null);
+        setError(errData?.error || '사이트 생성에 실패했습니다. 다시 시도해 주세요.');
+        setIsSubmitting(false);
       }
     } catch {
+      setError('네트워크 오류가 발생했습니다. 인터넷 연결을 확인해 주세요.');
       setIsSubmitting(false);
     }
   }
@@ -128,6 +135,12 @@ export default function OnboardingStep4() {
               )}
             </dl>
           </div>
+
+          {error && (
+            <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+              {error}
+            </div>
+          )}
 
           <div className="flex gap-4">
             <Button type="button" variant="outline" onClick={() => router.push('/onboarding/step3')}>

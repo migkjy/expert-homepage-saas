@@ -24,9 +24,9 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-slate-900">법적 고지</h4>
             <ul className="mt-3 space-y-2 text-sm text-slate-600">
-              <li><Link href="/terms" className="hover:text-blue-600">이용약관</Link></li>
-              <li><Link href="/privacy" className="hover:text-blue-600">개인정보처리방침</Link></li>
-              <li><Link href="#" className="hover:text-blue-600">환불 정책</Link></li>
+              <li><span className="text-slate-400 cursor-default">이용약관 (준비중)</span></li>
+              <li><span className="text-slate-400 cursor-default">개인정보처리방침 (준비중)</span></li>
+              <li><span className="text-slate-400 cursor-default">환불 정책 (준비중)</span></li>
             </ul>
           </div>
         </div>

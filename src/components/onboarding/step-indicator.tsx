@@ -1,7 +1,7 @@
 const steps = [
   { num: 1, label: '직종 선택' },
   { num: 2, label: '사무소 정보' },
-  { num: 3, label: '템플릿 선택' },
+  { num: 3, label: '브랜딩 설정' },
   { num: 4, label: '확인' },
 ];
 

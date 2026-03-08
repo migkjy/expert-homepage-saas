@@ -30,6 +30,10 @@ export default function OnboardingStep2() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (selectedSpecialties.length === 0) {
+      alert('전문 분야를 최소 1개 이상 선택해 주세요.');
+      return;
+    }
     const formData = new FormData(e.currentTarget);
     const data = {
       businessName: formData.get('businessName') as string,

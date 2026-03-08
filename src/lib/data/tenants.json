@@ -1,0 +1,187 @@
+[
+  {
+    "id": "tenant-001",
+    "slug": "kim-law",
+    "businessName": "김변호사 법률사무소",
+    "ownerName": "김민수",
+    "profession": "lawyer",
+    "specialties": ["이혼/가사", "상속/유언", "부동산", "민사소송"],
+    "region": "서울 강남구",
+    "phone": "02-555-1234",
+    "email": "contact@kim-law.prosite.kr",
+    "address": "서울특별시 강남구 테헤란로 123, 법조빌딩 5층",
+    "description": "20년 경력의 가사·상속 전문 변호사. 의뢰인의 권리를 끝까지 지켜드립니다.",
+    "templateId": "lawyer",
+    "plan": "pro",
+    "createdAt": "2026-01-15T09:00:00Z",
+    "branding": {
+      "primaryColor": "#1B365D",
+      "tagline": "당신의 권리, 끝까지 지켜드립니다"
+    },
+    "blogPosts": [
+      {
+        "id": "post-001",
+        "title": "협의이혼 절차와 주의사항 총정리",
+        "slug": "divorce-procedure-guide",
+        "excerpt": "협의이혼을 고려하고 계신가요? 절차, 필요 서류, 숙려기간까지 한눈에 정리해 드립니다.",
+        "content": "협의이혼은 부부 양측이 이혼에 합의한 경우 진행하는 절차입니다...",
+        "publishedAt": "2026-03-01T10:00:00Z",
+        "published": true
+      },
+      {
+        "id": "post-002",
+        "title": "상속분쟁, 소송 전 알아야 할 5가지",
+        "slug": "inheritance-dispute-tips",
+        "excerpt": "상속 문제로 가족 간 갈등이 생겼을 때, 소송 전 반드시 확인해야 할 사항들.",
+        "content": "상속분쟁은 가족 관계를 시험하는 어려운 과정입니다...",
+        "publishedAt": "2026-02-20T10:00:00Z",
+        "published": true
+      },
+      {
+        "id": "post-003",
+        "title": "부동산 매매 계약서 작성 시 체크리스트",
+        "slug": "real-estate-contract-checklist",
+        "excerpt": "부동산 매매 계약 전 반드시 확인해야 할 항목들을 정리했습니다.",
+        "content": "부동산 거래는 큰 금액이 오가는 만큼 계약서 작성에 신중해야 합니다...",
+        "publishedAt": "2026-02-10T10:00:00Z",
+        "published": true
+      }
+    ],
+    "consultations": [
+      {
+        "id": "consult-001",
+        "name": "이**",
+        "phone": "010-1234-5678",
+        "field": "이혼/가사",
+        "message": "협의이혼 진행 중인데 재산분할 관련 상담 받고 싶습니다.",
+        "createdAt": "2026-03-05T14:30:00Z",
+        "status": "contacted"
+      }
+    ],
+    "stats": {
+      "totalVisitors": 2340,
+      "monthlyVisitors": 456,
+      "totalConsultations": 23
+    }
+  },
+  {
+    "id": "tenant-002",
+    "slug": "park-tax",
+    "businessName": "박세무사 세무회계사무소",
+    "ownerName": "박지영",
+    "profession": "tax_accountant",
+    "specialties": ["기장대리", "세무조정", "양도소득세", "상속증여세", "법인설립"],
+    "region": "경기도 수원시",
+    "phone": "031-888-5678",
+    "email": "contact@park-tax.prosite.kr",
+    "address": "경기도 수원시 영통구 광교로 456, 세무빌딩 3층",
+    "description": "15년 경력 세무사. 소규모 사업자부터 법인까지, 세금 걱정을 덜어드립니다.",
+    "templateId": "tax_accountant",
+    "plan": "pro",
+    "createdAt": "2026-02-01T09:00:00Z",
+    "branding": {
+      "primaryColor": "#0D4F4F",
+      "tagline": "세금 고민, 전문가에게 맡기세요"
+    },
+    "blogPosts": [
+      {
+        "id": "post-004",
+        "title": "2026년 종합소득세 신고 가이드",
+        "slug": "income-tax-guide-2026",
+        "excerpt": "올해 종합소득세 신고, 달라진 점과 절세 전략을 알려드립니다.",
+        "content": "매년 5월은 종합소득세 신고의 달입니다...",
+        "publishedAt": "2026-03-03T10:00:00Z",
+        "published": true
+      },
+      {
+        "id": "post-005",
+        "title": "프리랜서 세금 관리 완벽 가이드",
+        "slug": "freelancer-tax-guide",
+        "excerpt": "프리랜서로 활동 중이시라면, 세금 관리의 기본부터 절세 팁까지.",
+        "content": "프리랜서는 사업자와 달리 3.3% 원천징수를 받습니다...",
+        "publishedAt": "2026-02-25T10:00:00Z",
+        "published": true
+      },
+      {
+        "id": "post-006",
+        "title": "법인 설립 시 세무사가 꼭 필요한 이유",
+        "slug": "why-need-tax-accountant-for-corporation",
+        "excerpt": "법인 설립을 준비하고 계신가요? 초기 세무 설정이 왜 중요한지 알려드립니다.",
+        "content": "법인 설립은 사업의 새로운 시작입니다...",
+        "publishedAt": "2026-02-15T10:00:00Z",
+        "published": true
+      }
+    ],
+    "consultations": [],
+    "stats": {
+      "totalVisitors": 1890,
+      "monthlyVisitors": 312,
+      "totalConsultations": 18
+    }
+  },
+  {
+    "id": "tenant-003",
+    "slug": "lee-patent",
+    "businessName": "이변리사 특허사무소",
+    "ownerName": "이준호",
+    "profession": "patent_attorney",
+    "specialties": ["IT/소프트웨어 특허", "상표등록", "디자인등록", "기술이전", "특허분쟁"],
+    "region": "서울 서초구",
+    "phone": "02-777-9012",
+    "email": "contact@lee-patent.prosite.kr",
+    "address": "서울특별시 서초구 서초대로 789, 특허타워 7층",
+    "description": "IT·스타트업 특허 전문. 기술을 지적재산으로 바꿔드립니다.",
+    "templateId": "patent_attorney",
+    "plan": "premium",
+    "createdAt": "2026-02-15T09:00:00Z",
+    "branding": {
+      "primaryColor": "#2D3748",
+      "tagline": "기술을 지적재산으로 바꿔드립니다"
+    },
+    "blogPosts": [
+      {
+        "id": "post-007",
+        "title": "스타트업이 꼭 알아야 할 특허 전략",
+        "slug": "startup-patent-strategy",
+        "excerpt": "스타트업에게 특허는 선택이 아닌 필수입니다. 초기 특허 전략을 알려드립니다.",
+        "content": "많은 스타트업이 특허의 중요성을 뒤늦게 깨닫습니다...",
+        "publishedAt": "2026-03-02T10:00:00Z",
+        "published": true
+      },
+      {
+        "id": "post-008",
+        "title": "상표등록 절차와 비용 총정리",
+        "slug": "trademark-registration-guide",
+        "excerpt": "브랜드 보호의 첫걸음, 상표등록. 절차와 비용을 한눈에 정리합니다.",
+        "content": "상표등록은 브랜드를 법적으로 보호하는 가장 기본적인 방법입니다...",
+        "publishedAt": "2026-02-22T10:00:00Z",
+        "published": true
+      },
+      {
+        "id": "post-009",
+        "title": "AI 소프트웨어, 특허로 보호할 수 있을까?",
+        "slug": "ai-software-patent",
+        "excerpt": "AI 기술의 특허 가능성과 출원 전략을 살펴봅니다.",
+        "content": "인공지능 기술의 발전으로 AI 관련 특허 출원이 급증하고 있습니다...",
+        "publishedAt": "2026-02-12T10:00:00Z",
+        "published": true
+      }
+    ],
+    "consultations": [
+      {
+        "id": "consult-002",
+        "name": "최**",
+        "phone": "010-9876-5432",
+        "field": "IT/소프트웨어 특허",
+        "message": "AI 기반 추천 알고리즘 특허 출원 상담 요청합니다.",
+        "createdAt": "2026-03-06T11:00:00Z",
+        "status": "pending"
+      }
+    ],
+    "stats": {
+      "totalVisitors": 1560,
+      "monthlyVisitors": 278,
+      "totalConsultations": 15
+    }
+  }
+]

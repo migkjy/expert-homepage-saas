@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getTenantBySlug, getAllTenants } from '@/lib/tenant';
+import { DEMO_TENANT } from '@/lib/demo';
 import { LawyerTemplate } from '@/components/templates/lawyer-template';
 import { TaxAccountantTemplate } from '@/components/templates/tax-accountant-template';
 import { PatentAttorneyTemplate } from '@/components/templates/patent-attorney-template';
@@ -24,6 +25,12 @@ function getTemplate(tenant: Tenant) {
 
 export default async function TenantPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
+  // Demo tenant: use hardcoded data
+  if (slug === 'demo-lawyer') {
+    return <main>{getTemplate(DEMO_TENANT)}</main>;
+  }
+
   const tenant = getTenantBySlug(slug);
 
   if (!tenant) {

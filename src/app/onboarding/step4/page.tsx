@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { StepIndicator } from '@/components/onboarding/step-indicator';
 import { Button } from '@/components/ui/button';
+import { DemoBanner } from '@/components/demo/demo-banner';
+import { isDemoMode } from '@/lib/demo';
 import { PROFESSION_LABELS } from '@/types/tenant';
 import type { Profession } from '@/types/tenant';
 
@@ -26,6 +28,11 @@ export default function OnboardingStep4() {
   const [data, setData] = useState<OnboardingData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [demo, setDemo] = useState(false);
+
+  useEffect(() => {
+    setDemo(isDemoMode());
+  }, []);
 
   useEffect(() => {
     const profession = (sessionStorage.getItem('onboarding_profession') || 'lawyer') as Profession;
@@ -38,6 +45,20 @@ export default function OnboardingStep4() {
     if (!data) return;
     setIsSubmitting(true);
     setError(null);
+
+    if (demo) {
+      // Demo mode: skip API, save locally
+      const demoResult = {
+        slug: 'demo-lawyer',
+        businessName: data.businessName || '데모 법률사무소',
+      };
+      sessionStorage.setItem('onboarding_result', JSON.stringify(demoResult));
+      sessionStorage.removeItem('onboarding_profession');
+      sessionStorage.removeItem('onboarding_info');
+      sessionStorage.removeItem('onboarding_branding');
+      router.push('/onboarding/complete');
+      return;
+    }
 
     try {
       const res = await fetch('/api/tenants', {
@@ -74,6 +95,7 @@ export default function OnboardingStep4() {
 
   return (
     <div>
+      {demo && <DemoBanner />}
       <StepIndicator currentStep={4} />
       <div className="mx-auto max-w-2xl px-4 pb-16">
         <div className="text-center">

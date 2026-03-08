@@ -26,9 +26,9 @@ export function HeroSection() {
                 무료로 시작하기
               </Button>
             </Link>
-            <Link href="#pricing">
+            <Link href="/demo">
               <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                요금제 보기
+                데모 체험하기
               </Button>
             </Link>
           </div>

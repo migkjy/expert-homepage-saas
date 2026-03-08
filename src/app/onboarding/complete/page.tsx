@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { DemoBanner } from '@/components/demo/demo-banner';
+import { isDemoMode } from '@/lib/demo';
 
 interface Result {
   slug: string;
@@ -11,8 +13,10 @@ interface Result {
 
 export default function OnboardingComplete() {
   const [result, setResult] = useState<Result | null>(null);
+  const [demo, setDemo] = useState(false);
 
   useEffect(() => {
+    setDemo(isDemoMode());
     const saved = sessionStorage.getItem('onboarding_result');
     if (saved) {
       setResult(JSON.parse(saved));
@@ -25,7 +29,9 @@ export default function OnboardingComplete() {
     : 'your-site.prosite.kr';
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16">
+    <div>
+      {demo && <DemoBanner />}
+      <div className="mx-auto max-w-2xl px-4 py-16">
       <div className="rounded-2xl bg-white p-12 text-center shadow-lg">
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
           <svg className="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -47,23 +53,33 @@ export default function OnboardingComplete() {
 
         <div className="mt-8 flex flex-col gap-3">
           {result && (
-            <Link href={`/sites/${result.slug}?tenant=${result.slug}`}>
+            <Link href={demo ? `/sites/demo-lawyer` : `/sites/${result.slug}?tenant=${result.slug}`}>
               <Button fullWidth size="lg">
                 내 사이트 보기
               </Button>
             </Link>
           )}
-          <Link href="/dashboard">
+          <Link href={demo ? '/demo/dashboard' : '/dashboard'}>
             <Button variant="outline" fullWidth size="lg">
               대시보드로 이동
             </Button>
           </Link>
+          {demo && (
+            <Link href="/onboarding/step1">
+              <Button variant="ghost" fullWidth size="lg">
+                실제 서비스로 전환하기
+              </Button>
+            </Link>
+          )}
         </div>
 
         <p className="mt-6 text-sm text-slate-400">
-          14일 무료 체험이 시작되었습니다. 자유롭게 사이트를 꾸며보세요!
+          {demo
+            ? '데모 모드입니다. 실제 서비스에서는 14일 무료 체험을 제공합니다.'
+            : '14일 무료 체험이 시작되었습니다. 자유롭게 사이트를 꾸며보세요!'}
         </p>
       </div>
+    </div>
     </div>
   );
 }

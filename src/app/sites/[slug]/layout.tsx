@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getTenantBySlug, getAllTenants } from '@/lib/tenant';
+import { DEMO_TENANT } from '@/lib/demo';
 import { PROFESSION_LABELS } from '@/types/tenant';
 import { TenantHeader } from '@/components/tenant/header';
 import { TenantFooter } from '@/components/tenant/footer';
@@ -15,9 +16,14 @@ export async function generateStaticParams() {
   return getAllTenants().map((t) => ({ slug: t.slug }));
 }
 
+function resolveTenant(slug: string) {
+  if (slug === 'demo-lawyer') return DEMO_TENANT;
+  return getTenantBySlug(slug);
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const tenant = getTenantBySlug(slug);
+  const tenant = resolveTenant(slug);
   if (!tenant) return {};
 
   const professionLabel = PROFESSION_LABELS[tenant.profession];
@@ -34,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function TenantLayout({ params, children }: Props) {
   const { slug } = await params;
-  const tenant = getTenantBySlug(slug);
+  const tenant = resolveTenant(slug);
 
   if (!tenant) {
     notFound();
